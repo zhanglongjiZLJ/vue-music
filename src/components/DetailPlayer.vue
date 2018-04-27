@@ -157,8 +157,9 @@
         this.is_collection = !this.is_collection
         if(this.is_collection == true){
           this.songList.push(this.currentSong)
+          this.$store.commit('songList', this.songList)
         }else{
-          this.songList.splice(this.songList.findIndex(item => item.remark == this.currentSong.remark), 1)
+          this.songList.splice(this.songList.findIndex(item => item.filename == this.currentSong.filename), 1)
         }
         this.$store.commit('songList', this.songList)
       }
